@@ -110,8 +110,6 @@ RUN set -eux; \
 	# apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
 	
 
-ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
-
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
 RUN apt-get -y update
 # socat can be used to proxy an external port and make it look like it is local
