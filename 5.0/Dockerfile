@@ -107,11 +107,16 @@ RUN set -eux; \
 		| sort -u \
 		| xargs -r apt-mark manual \
 	; \
-	      apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
-	
+	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
 
+VOLUME /usr/src/redmine/files
 
-# socat can be used to proxy an external port and make it look like it is local
+COPY docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+EXPOSE 3000
+CMD ["rails", "server", "-b", "0.0.0.0"]
+
 RUN apt-get -y install ca-certificates socat openssh-server supervisor rpl pwgen
 RUN mkdir /var/run/sshd
 ADD sshd.conf /etc/supervisor/conf.d/sshd.conf
@@ -140,11 +145,3 @@ ADD start.sh /start.sh
 RUN chmod 0755 /start.sh
 
 CMD /start.sh
-
-VOLUME /usr/src/redmine/files
-
-COPY docker-entrypoint.sh /
-ENTRYPOINT ["/docker-entrypoint.sh"]
-COPY configuration.yml /usr/src/redmine/config
-EXPOSE 3000 
-CMD ["rails", "server", "-b", "0.0.0.0"]
