@@ -113,6 +113,6 @@ VOLUME /usr/src/redmine/files
 
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
-
-EXPOSE 3000
+COPY configuration.yml /usr/src/redmine/config
+EXPOSE 3000 
 CMD ["rails", "server", "-b", "0.0.0.0"]
