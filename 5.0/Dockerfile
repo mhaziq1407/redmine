@@ -107,10 +107,10 @@ RUN set -eux; \
 		| sort -u \
 		| xargs -r apt-mark manual \
 	; \
-	# apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
+# apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
 	
 
-RUN apt-get -y update
+
 # socat can be used to proxy an external port and make it look like it is local
 RUN apt-get -y install ca-certificates socat openssh-server supervisor rpl pwgen
 RUN mkdir /var/run/sshd
