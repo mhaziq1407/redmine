@@ -107,7 +107,7 @@ RUN set -eux; \
 		| sort -u \
 		| xargs -r apt-mark manual \
 	; \
-# apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
+	      apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
 	
 
 
