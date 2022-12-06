@@ -109,7 +109,7 @@ RUN set -eux; \
 	; \
 	# apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
 	
-RUN  dpkg-divert --local --rename --add /sbin/initctl
+RUN dpkg-divert --local --rename --add /sbin/initctl
 #RUN  ln -s /bin/true /sbin/initctl
 
 # Use local cached debs from host (saves your bandwidth!)
