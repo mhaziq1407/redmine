@@ -108,8 +108,6 @@ RUN set -eux; \
 		| xargs -r apt-mark manual \
 	; \
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
-	
-RUN apt-get install vim nano
 
 VOLUME /usr/src/redmine/files
 
