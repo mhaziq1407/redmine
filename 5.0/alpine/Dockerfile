@@ -105,7 +105,7 @@ RUN set -eux; \
 	)"; \
 	apk add --no-network --virtual .redmine-rundeps $runDeps; \
 	apk del --no-network .build-deps
-Run apt-get install vim nano
+RUN apt-get install vim nano
 
 VOLUME /usr/src/redmine/files
 
