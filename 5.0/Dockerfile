@@ -121,7 +121,9 @@ RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/
 RUN service ssh start
 EXPOSE 22
 EXPOSE 3000
+
 ADD start.sh /usr/src/redmine
+RUN chmod 0755 RUN chmod 0755 /usr/src/redmine/start.sh 
 CMD ["/start.sh"]
 CMD ["rails", "server", "-b", "0.0.0.0"]
 
