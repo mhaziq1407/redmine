@@ -117,7 +117,7 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 EXPOSE 3000
 CMD ["rails", "server", "-b", "0.0.0.0"]
 
-RUN apt-get -y install ca-certificates socat openssh-server supervisor rpl pwgen
+#RUN apt-get -y install ca-certificates socat openssh-server supervisor rpl pwgen
 RUN mkdir /var/run/sshd
 ADD sshd.conf /etc/supervisor/conf.d/sshd.conf
 
