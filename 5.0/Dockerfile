@@ -122,7 +122,7 @@ EXPOSE 3000
 ADD start.sh /usr/src/redmine
 RUN /bin/bash
 RUN chmod 0755 /usr/src/redmine/start.sh 
-RUN /usr/sbin/sshd
+RUN /usr/src/redmine/start.sh 
 CMD ["rails", "server", "-b", "0.0.0.0"]
 
 
