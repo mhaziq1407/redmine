@@ -121,8 +121,9 @@ EXPOSE 22
 EXPOSE 3000
 ADD start.sh /usr/src/redmine
 RUN /bin/bash
-RUN chmod 0755 /usr/src/redmine/start.sh 
-ENTRYPOINT ["/start.sh"]
+RUN chmod 0755 /usr/src/redmine/start.sh
+RUN sed -i -e 's/\r$//' start.sh
+RUN /start.sh
 CMD ["rails", "server", "-b", "0.0.0.0"]
 
 
