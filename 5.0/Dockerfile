@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 # explicitly set uid/gid to guarantee that it won't change in the future
 # the values 999:999 are identical to the current user/group id assigned
-RUN sudo apt-get update
+RUN apt-get update
 RUN groupadd -r -g 999 redmine && useradd -r -g redmine -u 999 redmine
 
 RUN set -eux; \
