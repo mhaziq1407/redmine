@@ -4,7 +4,7 @@ FROM ruby:latest
 # the values 999:999 are identical to the current user/group id assigned
 RUN apt-get update
 RUN groupadd -r -g 999 redmine && useradd -r -g redmine -u 999 redmine
-
+USER root
 RUN set -eux; \
 	apt-get update; \
 	apt-get install -y \
