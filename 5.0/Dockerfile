@@ -157,11 +157,11 @@ EXPOSE 22
 # this dockerfile directly.
 WORKDIR /usr/src/redmine
 ADD setup.sh /usr/src/redmine
-RUN chmod 0755 /usr/src/redmine
+RUN chmod 0755 /usr/src/redmine/setup.sh
 RUN /usr/src/redmine/setup.sh
 
 # Called on first run of docker - will run supervisor
 ADD start.sh /usr/src/redmine
-RUN chmod 0755 /usr/src/redmine
+RUN chmod 0755 /usr/src/redmine/start.sh
 
 CMD /usr/src/redmine/start.sh
