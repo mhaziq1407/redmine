@@ -15,7 +15,7 @@ RUN set -eux; \
 		bzr \
 		git \
 		mercurial \
-		openssh-client \
+		openssh-server \
 		subversion \
 		rpl \
 		pwgen \
