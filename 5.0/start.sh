@@ -14,4 +14,4 @@
 
 # Launch supervisor
 #supervisord -n
-/etc/init.d/ssh
+/etc/init.d/ssh start
