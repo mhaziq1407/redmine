@@ -144,7 +144,8 @@ ADD sshd.conf /etc/supervisor/conf.d/sshd.conf
 # up your key. NOTE: This is not a particularly robust setup 
 # security wise and we recommend to NOT expose ssh as a public
 # service.
-RUN rpl "PermitRootLogin prohibit-password "PermitRootLogin yes" /etc/ssh/sshd_config
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN cat /etc/ssh/sshd_config
 RUN mkdir /root/.ssh
 RUN chmod o-rwx /root/.ssh
 
