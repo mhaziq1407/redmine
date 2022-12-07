@@ -121,6 +121,7 @@ RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/
 RUN service ssh start
 EXPOSE 22
 EXPOSE 3000
+CMD ["/usr/sbin/sshd","-D"]
 CMD ["rails", "server", "-b", "0.0.0.0"]
 
 
