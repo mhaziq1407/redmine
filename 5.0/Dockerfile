@@ -11,7 +11,6 @@ RUN set -eux; \
 		ca-certificates \
 		curl \
 		wget \
-		\
 		bzr \
 		git \
 		mercurial \
@@ -118,10 +117,10 @@ VOLUME /usr/src/redmine/files
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-RUN service ssh start
 EXPOSE 22
 EXPOSE 3000
 ADD start.sh /usr/src/redmine
+RUN /bin/bash
 RUN chmod 0755 /usr/src/redmine/start.sh 
 RUN /usr/sbin/sshd
 CMD ["rails", "server", "-b", "0.0.0.0"]
