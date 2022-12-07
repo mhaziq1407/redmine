@@ -116,6 +116,7 @@ VOLUME /usr/src/redmine/files
 
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/bin/bash"]
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 EXPOSE 22
 EXPOSE 3000
