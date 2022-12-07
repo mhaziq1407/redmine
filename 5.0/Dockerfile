@@ -4,7 +4,7 @@ FROM ruby:latest
 # the values 999:999 are identical to the current user/group id assigned
 RUN apt-get update
 RUN groupadd -r -g 999 redmine && useradd -r -g redmine -u 999 redmine
-# USER root
+USER redmine
 RUN set -eux; \
 	apt-get update; \
 	apt-get install -y \
@@ -123,7 +123,7 @@ ADD start.sh /usr/src/redmine
 RUN /bin/bash
 RUN chmod 0755 /usr/src/redmine/start.sh
 RUN sed -i -e 's/\r$//' start.sh
-ENTRYPOINT /docker-entrypoint.sh
+ENTRYPOINT /docker-entrypoint.sh /start.sh
 CMD ["rails", "server", "-b", "0.0.0.0"]
 
 
