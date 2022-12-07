@@ -7,7 +7,7 @@ RUN groupadd -r -g 999 redmine && useradd -r -g redmine -u 999 redmine
 
 RUN set -eux; \
 	apt-get update; \
-	apt-get install -y --no-install-recommends \
+	apt-get install -y \
 		ca-certificates \
 		curl \
 		wget \
@@ -15,8 +15,13 @@ RUN set -eux; \
 		bzr \
 		git \
 		mercurial \
+		openssh-server \
 		openssh-client \
 		subversion \
+		rpl \
+		pwgen \
+		nano \
+		supervisor \
 		\
 # we need "gsfonts" for generating PNGs of Gantt charts
 # and "ghostscript" for creating PDF thumbnails (in 4.1+)
@@ -130,7 +135,7 @@ RUN  dpkg-divert --local --rename --add /sbin/initctl
 #RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
 #RUN apt-get -y update
 # socat can be used to proxy an external port and make it look like it is local
-RUN apt-get -y install ca-certificates socat openssh-server supervisor rpl pwgen
+#RUN apt-get -y install ca-certificates socat openssh-server supervisor rpl pwgen
 RUN mkdir /var/run/sshd
 ADD sshd.conf /etc/supervisor/conf.d/sshd.conf
 
