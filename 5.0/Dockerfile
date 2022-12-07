@@ -1,4 +1,4 @@
-FROM 3.2.0-rc1-slim-bullseye
+FROM 3.2.0-rc1-bullseye
 
 # explicitly set uid/gid to guarantee that it won't change in the future
 # the values 999:999 are identical to the current user/group id assigned
