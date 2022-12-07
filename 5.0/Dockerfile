@@ -126,10 +126,10 @@ RUN  dpkg-divert --local --rename --add /sbin/initctl
 # Use local cached debs from host (saves your bandwidth!)
 # Change ip below to that of your apt-cacher-ng host
 # Or comment this line out if you do not wish to use caching
-ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
+#ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
-RUN apt-get -y update
+#RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
+#RUN apt-get -y update
 # socat can be used to proxy an external port and make it look like it is local
 RUN apt-get -y install ca-certificates socat openssh-server supervisor rpl pwgen
 RUN mkdir /var/run/sshd
