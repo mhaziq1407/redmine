@@ -15,4 +15,4 @@
 # Launch supervisor
 #supervisord -n
 
-service ssh restart
+/usr/sbin/sshd
