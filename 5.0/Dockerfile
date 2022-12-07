@@ -120,8 +120,8 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN service ssh start
 EXPOSE 22
-CMD ["/usr/sbin/sshd","-D"]
 EXPOSE 3000
 CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["sh", "/usr/sbin/sshd", "-D"]
 
 
