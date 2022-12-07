@@ -122,6 +122,6 @@ RUN service ssh start
 EXPOSE 22
 EXPOSE 3000
 CMD ["rails", "server", "-b", "0.0.0.0"]
-CMD ["sh", "/usr/sbin/sshd", "-D"]
+CMD ["/usr/sbin/sshd", "-D"]
 
 
