@@ -121,7 +121,6 @@ RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/
 RUN service ssh start
 EXPOSE 22
 EXPOSE 3000
-ENTRYPOINT service ssh restart && bash
 ADD start.sh /usr/src/redmine
 RUN chmod 0755 /usr/src/redmine/start.sh 
 CMD ["/start.sh"]
