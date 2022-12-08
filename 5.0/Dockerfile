@@ -123,8 +123,9 @@ RUN /bin/bash
 RUN chmod 0755 /usr/src/redmine/start.sh
 RUN sed -i -e 's/\r$//' start.sh
 ADD sshd.conf /etc/supervisor/conf.d/sshd.conf
-# CMD ["rails", "server", "-b", "0.0.0.0"]
-CMD ["/usr/bin/supervisord"]
+RUN /usr/bin/supervisord
+CMD ["rails", "server", "-b", "0.0.0.0"]
+#CMD ["/usr/bin/supervisord"]
 
 
 
