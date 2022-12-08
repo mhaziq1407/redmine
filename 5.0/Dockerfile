@@ -113,9 +113,8 @@ RUN set -eux; \
 	#apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
 
 VOLUME /usr/src/redmine/files
-
 COPY docker-entrypoint.sh /
-
+ENTRYPOINT ["/docker-entrypoint.sh"]
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 EXPOSE 22
 EXPOSE 3000
@@ -123,8 +122,7 @@ ADD start.sh /usr/src/redmine
 RUN /bin/bash
 RUN chmod 0755 /usr/src/redmine/start.sh
 RUN sed -i -e 's/\r$//' start.sh
-RUN service ssh start
-ENTRYPOINT /docker-entrypoint.sh
+RUN service ssh enable
 CMD ["rails", "server", "-b", "0.0.0.0"]
 
 
