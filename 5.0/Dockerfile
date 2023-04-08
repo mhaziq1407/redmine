@@ -50,6 +50,8 @@ RUN set -eux; \
 ENV REDMINE_VERSION 5.0.4
 ENV REDMINE_DOWNLOAD_URL https://www.redmine.org/releases/redmine-5.0.4.tar.gz
 ENV REDMINE_DOWNLOAD_SHA256 39436f5f8d26f5b7ce17e79903a3112e556e924da4f51c05b57f5defbe6f2924
+rvm install "ruby-2.7.5"
+rvm use 2.7.5
 
 RUN set -eux; \
 # if we use wget here, we get certificate issues (https://github.com/docker-library/redmine/pull/249#issuecomment-984176479)
